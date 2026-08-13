@@ -1,0 +1,13 @@
+{
+  "name": "q24",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test-rugby": "vitest run rugby.test.ts",
+    "test-server": "vitest run server.test.ts",
+    "tsx": "tsx",
+    "tsc": "tsc --noEmit",
+    "start": "tsx server.ts",
+    "dev": "tsx watch --clear-screen=false --include 'config.json' server.ts"
+  }
+}

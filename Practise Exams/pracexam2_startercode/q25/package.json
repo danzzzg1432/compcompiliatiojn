@@ -1,0 +1,13 @@
+{
+  "name": "q25",
+  "type": "module",
+  "scripts": {
+    "tsx": "tsx",
+    "test": "vitest run",
+    "test-progcomp": "vitest run --coverage progComp.test.ts",
+    "start": "tsx server.ts",
+    "start-coverage": "c8 --reporter=text --reporter=lcov tsx server.ts",
+    "test-server": "vitest run server.test.ts",
+    "dev": "tsx watch --clear-screen=false --include 'config.json' server.ts"
+  }
+}

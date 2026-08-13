@@ -1,0 +1,31 @@
+{
+  "name": "lab07_objection",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "UNLICENSED",
+  "author": "",
+  "main": "src/objection.ts",
+  "scripts": {
+    "test": "vitest run --coverage",
+    "tsc": "tsc --noEmit",
+    "tsx": "tsx",
+    "lint": "eslint '**/*.ts'"
+  },
+  "dependencies": {
+    "tsx": "^4.20.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^26.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.62.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0",
+    "vitest": "^4.1.9"
+  }
+}

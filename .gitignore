@@ -1,0 +1,47 @@
+# macOS and Windows metadata
+.DS_Store
+Thumbs.db
+
+# Local scratch and generated analysis artifacts
+/tmp/
+
+# Dependencies
+node_modules/
+
+# Build and test output
+dist/
+build/
+out-tsc/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Logs and runtime files
+logs/
+*.log
+*.pid
+*.pid.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files and local secrets
+.env
+.env.*
+!.env.example
+
+# Tool caches
+.cache/
+.npm/
+.eslintcache
+
+# Editors and IDEs
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~

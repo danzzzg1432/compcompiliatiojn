@@ -1,0 +1,11 @@
+{
+  "name": "q29",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run pizza.test.ts",
+    "tsx": "tsx",
+    "tsc": "tsc --noEmit",
+    "start": "tsx server.ts",
+    "dev": "tsx watch --clear-screen=false --include 'config.json' server.ts"
+  }
+}

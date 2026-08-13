@@ -1,0 +1,10 @@
+{
+  "name": "q27",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run stock.test.ts",
+    "lint": "eslint",
+    "tsc": "tsc --noEmit",
+    "tsx": "tsx"
+  }
+}

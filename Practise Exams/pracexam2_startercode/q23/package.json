@@ -1,0 +1,7 @@
+{
+  "name": "q23",
+  "scripts": {
+    "test": "vitest run",
+    "tsx": "tsx"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "q22",
+  "scripts": {
+    "test": "vitest run",
+    "test-a": "vitest run tests/a",
+    "test-b": "vitest run tests/b",
+    "tsx": "tsx"
+  }
+}
