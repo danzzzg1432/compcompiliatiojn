@@ -1,0 +1,139 @@
+          COMP1531
+Software Engineering Fundamentals
+
+
+                   Week 2
+     Development - Multi-File & Importing
+In this Lecture
+
+Why?
+Most software projects involve working across multiple ﬁles that need to
+interact
+                              Big projects ≠ one ﬁle
+
+
+What?
+ -   Import Libraries
+ -   Importing our own ﬁles
+Importing Libraries
+
+Similar to C, NodeJS (Javascript) has a number of . These libraries come with
+the interpret and don't need to be installed. These libraries were written by
+other programmers.
+
+
+Examples of importing are below.
+
+                   C                                  Javascript
+Importing Libraries
+
+How we use them is diﬀerent too.
+
+
+              C                    Javascript
+Importing Our Own Files
+We're also able to import our own ﬁles into another ﬁle, allowing us to
+separate out logic!
+
+
+
+
+                                split_before.js
+Importing Our Own Files
+
+We've now split the code up into two ﬁles.
+
+
+
+
+            split_after_lib.js                            split_after_main.js
+
+
+           We use export default X when we want to export a single thing.
+Importing Our Own Files
+
+We've now split the code up into two ﬁles.
+
+
+
+
+            split_after_lib.js                               split_after_main.js
+
+            ●   We use export default X when we want to export a single thing.
+            ●   But now what if we want to export multiple things?
+Importing Our Own Files
+For example, how do we export both functions from this ﬁle?
+
+
+
+
+                        multi_export_lib_p_1.js
+Importing Our Own Files
+Instead of exporting one thing, we can export many things! Please note, this is not
+exporting an object.
+
+
+
+
+                    multi_export_lib_p_2.js
+Importing Our Own Files
+We can use destructuring for importing as well.
+
+
+
+
+                                          multi_export_main_p_2.js
+
+
+
+
+     multi_export_lib_p_2.js
+Importing Our Own Files
+In summary:
+  Default Export                  Named Export
+
+
+
+
+          Export one thing
+
+                             Export one or more things
+Other Notes About Importing
+In general we try and always use named exports. This:
+
+1.   Adds ﬂexibility to our code design as it allows us to add more exports
+     later.
+2.   Means that users of a library by default have to reuse the same name of
+     your function.
+
+
+
+
+                                                        main.js
+
+              fns.js
+Other Notes About Importing
+
+That being said, with named exports (i.e. an export within an object) we can
+still alias the name if we need to. This is especially useful if you already have
+functions in your ﬁle that use that name.
+
+
+
+
+                                                           main.js
+                fns.js
+Other Notes About Importing
+
+And if we're importing too many things, we can just break it up over multiple
+lines.
+Finally
+
+In summary:
+Feedback
+
+
+
+
+           Or go to the form here
+

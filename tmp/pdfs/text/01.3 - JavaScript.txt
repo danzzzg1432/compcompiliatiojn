@@ -1,0 +1,314 @@
+        COMP1531
+Software Engineering Fundamentals
+
+              Week 1
+             JavaScript
+JavaScript
+● A very...quirky programming language
+    ○   Designed in 10 days back in 1995 so Netscape
+        could add scripting to their browser
+    ○   Once a feature shipped to the web, it was
+        locked in
+    ○   JavaScript evolved in real-time, on billions of
+        devices
+● A very appropriate language for us to
+  learn
+    ○   one of the most in-demand programming
+        languages.
+    ○   Necessary for your lab and project :-)
+● Fun (OPTIONAL) Demo
+JavaScript
+●   If it’s a mess, why learn it?
+    ○   It’s literally the most important programming language
+        in the world
+    ○   Industry Relevance: Major companies like Google,
+        Facebook, and Netflix use JavaScript extensively.
+    ○   99% of websites use JavaScript in some capacity
+         ■ Versatile
+             ● Frontend
+             ● Backend
+    ○   Rapid Prototyping
+         ■ Javascript has an extremely rich open source
+            library and package manager that allows you to
+            build apps quickly. Javascript is very high
+            level, making it easy to write code.
+Disclaimer
+
+Because you already know C, we will teach Javascript very
+quickly and mainly focus on the differences between
+Javascript and C.
+
+
+Don't expect to know everything about Javascript this term.
+Just focus on only learning what you need to solve a problem
+at hand, and you will learn more super quick.
+Javascript
+
+
+
+
+             intro.js
+ JavaScript vs C
+
+Write a function that takes in two numbers, and returns the smaller number
+
+                    C                                                 JavaScript
+
+
+
+
+              compare_1.c                                             compare_1.js
+ JavaScript vs C
+Write a function that takes in two numbers, and returns the smaller number
+
+                    C                                                       JavaScript
+
+
+
+
+              compare_1.c                                                   compare_1.js
+
+                        Now let's call the function and print the result!
+ JavaScript vs C
+Write a function that takes in two numbers, and returns the smaller number
+
+                    C                                                 JavaScript
+
+
+
+
+              compare_2.c                                            compare_2.js
+What is NodeJS?
+
+●   Compiles and runs JavaScript
+    ○   Allows JS to be run outside of the browser
+●   Similar to GCC (functionality wise)
+What is NodeJS?
+●   NodeJS is an interpreted language
+    ○   Compiled and run at the same step
+●   A little slower (it has to compile to
+    runnable code every time.
+●   A little more convenient (changes to
+    code don't require an extra
+    compilation step)
+
+
+
+    Performance vs Convenience
+JavaScript vs C
+
+●   Let’s learn some more fun JavaScript!
+Variables and Printing
+Variables are containers for data values.   const, let, console.log
+
+
+
+
+                                            variables.js
+Strings
+Concatenation, string literals
+
+
+
+
+                                      strings.js
+Literals provide an easy way to interpolate variables and expressions into strings. The method is called
+string interpolation (using backtick `)
+Control Structures
+if, else if, else, while, for.
+
+
+
+
+                                 control_structures.js
+Functions
+Very similar syntax to C.
+
+
+
+
+                            compare_1.js
+Data Structures: Collections
+
+We'll now discuss two important data structures that are
+both collections of data.
+
+Collections can either be:
+
+●   Sequential collections
+●   Associative collections
+Sequential Collections
+
+In sequential collections values are referenced by their
+integer index (key) that represents their location in an
+order.
+
+In Javascript sequential collections are represented by an
+array.
+Associative Collections
+
+In associative collections values are referenced by their
+string key that maps to a value.
+
+They often do not have an inherent sense of order.
+
+       ●   name → "Shaveen"
+       ●   age → 18
+       ●   height → "178cm"
+Arrays
+An array is a special variable. An array can hold many
+values under a single name, and you can access the values by
+referring to an index number. Arrays are dynamic and can
+hold different data types.
+
+
+
+
+                           arrays.js    names.push? → Arrays Methods
+Arrays
+Iterate through an array.
+
+
+
+
+                            array_basic.js
+Array
+For In Loop v.s. For Of Loop
+
+
+
+
+                                 array_advanced.js
+
+        ●   For In statement loops through the keys/indexes of an array.
+        ●   For Of statement loops through the values of an array.
+Objects   Source
+Objects
+
+●   Objects are variables too. But objects can contain many
+    values.
+●   This code assigns many values (Fiat, 500, white) to a variable
+    named car:
+
+
+●   The values are written as name:value pairs (name and value
+    separated by a colon).
+●   It is a common practice to declare objects with the const
+    keyword.
+Objects
+●   Objects are associative structures that may consist of many different
+    types.
+●   You can use them when you need a collection of items that are identified
+    by a string description, rather than a numerical index (arrays).
+
+
+
+
+                               objects.js
+Objects
+●   We can create and populate objects in different ways.
+
+
+
+
+           object_basic1.js                 object_basic2.js
+
+Both of these programs would print: { name:'Sally', age: 18,
+height:'187cm'}
+Objects
+We can mix the two methods, and also use alternative syntax
+with assigning.
+
+
+
+
+Or in a more full example.
+
+
+
+
+                                             object_more2.js
+          object_more1.js
+Objects
+We can also get various properties of an object using the
+Object functions
+
+
+
+
+                                               object_props_1.js
+Objects
+
+The output:
+Further Discussion Of Object
+
+●   The following code exhibits behaviour you're probably not used to:
+
+
+
+
+                         object_model.js
+●   "arr" is an array, but it also seems to have:
+     ○   A property length that we never set?
+     ○   Some kind of function that is being called?
+     ○   Let's look at why this is.
+Arrays are Objects !!
+
+● An “object” is a data type which
+    ○   Contains 0 or more properties/attributes
+    ○   Contains 0 or more methods/functions
+● Arrays fit this criteria??
+    ○   So do strings??
+    ○   So do functions???
+Tying Some Things Together
+Let's try some lists of
+objects (an array of
+objects).
+
+
+
+
+       object_loop1.js
+Tying Some Things Together
+Let's try some lists of objects (an array of objects).
+
+
+
+
+                        object_loop2.js
+Tying Some Things Together
+Let's try some lists of objects.
+
+
+
+
+                        object_loop3.js
+Tying Some Things Together
+Let's try more lists of objects.
+
+
+
+
+                        combining.js
+Further Reading
+
+●   Array of Objects
+Woah!
+
+●   This may seem very fast and confusing
+    ○   So how can you practice?
+Practice Available
+
+●   Labs
+●   Help Sessions
+●   Extra Resources!
+    ○   New optional material developed for practising programming this term
+    ○   If you find them useful, let us know!
+         ■ We might make more if demand is high enough
+Feedback
+
+
+
+
+           Or go to the form here
+

@@ -1,0 +1,174 @@
+        COMP1531
+Software Engineering Fundamentals
+
+               Week 1
+           Course Overview
+Welcome !!!
+
+● Welcome to COMP1531 - Software Engineering
+  Fundamentals
+● Today
+   ○   Discuss the structure of the course
+   ○   Discuss software engineering
+   ○   Learn some JavaScript
+Teaching Staff
+
+● Shaveen Singh
+    ○   PhD in Information Technology
+    ○   Course Convenor/Lecturer-in-Charge for 26T2
+    ○   Research focus on learning analytics, HCI, and AI in education.
+    ○   Originally from the Fiji Islands
+Teaching Team
+
+●   Also 35 tutors
+●   Amazing admin team
+●   Industry sponsorships
+General Course Overview
+
+● Teaching Strategies
+   ○   Lectures
+   ○   Tutorials
+   ○   Labs
+   ○   Major Project
+   ○   Help Sessions
+   ○   Final Exam
+Assessments
+
+              Item               Weighting
+
+              Labs and Quizzes     10%
+
+              Group Project        45%
+
+              Final Exam           45%
+Teaching Strategies
+
+Lecture
+
+● 2 x 2 hours per week
+● Schedule listed here, showing live stream links to
+  Youtube.
+● Slides for the lectures, and the recordings uploaded
+  later, found on the course page.
+Teaching Strategies
+
+Tutorial
+
+● Tutorial schedule and meeting links/locations can be
+  found on the timetable.
+● Tutorial content can be found on the course web page
+● Tutorials attendance and participation indirectly
+  contribute to your major project mark (see project
+  spec).
+Teaching Strategies
+Labs & Quizzes
+
+● Lab schedule and meeting links/locations can be found
+  on the timetable.
+● Lab content and Quizzes can be found on the course
+  page.
+● Labs & Quizzes contribute 10% of your final grade
+● Labs & Quiz need to be submitted weekly.
+● Labs are completely automarked, and you can use your
+  lab time with the lab assist to get help.
+Teaching Strategies
+Major Project
+● The major project is based on individual marking
+  within a bigger group - more on this later
+● This project will be done in groups of 4-5.
+● Group Preference form is available (check Week 1
+  Announcement)
+● The first iteration of this project will be released
+  soon and is due in Week 3
+Teaching Strategies
+
+Help Session
+
+● Help sessions are "drop-in" sessions where you or your
+  group can get further assistance outside of class
+  time.
+● Help Sessions begin in week 2.
+● Mini-help sessions begin in Week 1.
+● Schedule listed here.
+Teaching Strategies
+Final Exam
+
+●   The final exam is a 3-hour invigilated exam in person at CSE
+    labs during exam period at the end of the term.
+●   The exam runs in a closed environment (no internet) but with
+    relevant documentation provided, with no AI assistance allowed.
+●   The exam will be based on the content of the course, including
+    lectures, tutorials, labs, and the major project.
+●   A mark of at least 40% on the final exam is required to pass the
+    course.
+Getting Help
+
+If you need help throughout the course, seek it in this order:
+●   Step 0: Your team
+●   Step 1: Discourse forum (Course website)
+     ○   Look for answers before posting
+     ○   Note Shaveen does not directly monitor
+     ○   You were invited "z5555555@unsw.edu.au"
+●   Step 3: Help Sessions
+●   Step 4: Emailing Tutor / Assistant Tutor
+●   Step 5: Lecturers/Admins cs1531@cse.unsw.edu.au
+Getting Started
+
+Any operating system is fine for this course.
+
+●   CSE Lab Machines / VLAB : Ready to go!
+●   Mac OSX: Follow the getting started guide.
+●   Windows: Follow the getting started guide.
+Technology In The Course
+The key technologies we use in the course are:
+●   Course Website (our home!)
+●   Discourse (forum)
+●   GitLab (where your work lives)
+●   Microsoft Teams (for project communication and online class)
+       The key development software we will use:
+            -   git (GIT version control)
+            -   node (Javascript - NodeJS)
+
+          Full instructions relating to the installation can be found in our guide here.
+Important Notes
+
+●   We can only help you if you communicate with us
+    ○   Is your group bad?
+         ■ TELL US
+    ○   Is there a problem with your iteration/marks?
+         ■ TELL US
+             ● Within 7 days of the deadline
+●   We WANT to help you!
+    ○   But we can’t if you don’t tell us what’s wrong
+●   We are a part of your team, and we want you to succeed
+    ○   We will do everything we can to help you succeed, but we can only do
+        it if you work with us
+Other Important Info
+
+●   UNSW Services
+    ○     Health and Wellbeing
+    ○     Special Consideration
+●   Generative AI
+    ○     UNSW Guide for Uni Students
+●   ELS
+    ○     Information
+Course Changes
+
+●   We make changes in the course based on feedback from
+    previous instances
+●   This term:
+    ○   More practice examples
+         ■ In lectures
+         ■ More practice resources on course website
+    ○   Major project
+         ■ Reduced from 4 to 3 Iterations
+    ○   More practice exam questions (Week 10)
+    ○   ELS
+         ■ More explanation on slides
+Feedback
+
+
+
+
+           Or go to the form here
+

@@ -1,0 +1,283 @@
+ Hack-proof your Projects
+
+
+Giuliana De Bellis | Security Engineer & COMP1531 Course Admin
+         Introduction
+
+         Web App Vulnerabilities
+
+
+Agenda   Static Analysis Tooling
+
+         Key Takeaways
+
+         Q&A
+            My Background
+
+
+
+
+CompSci   IAG Threat   Drop Co-op,   Grad role @
+Co-op @      Intel      graduate      Atlassian
+ UNSW     Internship     UNSW
+          Cyber Security Roles
+
+
+
+STOP THE THREAT                 BE THE THREAT
+    Incident Detections &        Penetration Testing
+          Response
+                                    Red Teaming
+     Threat Intelligence
+                                    Bug Bounty
+Security Controls Engineering
+          Cyber Security Roles
+
+
+
+STOP THE THREAT                 BE THE THREAT
+    Incident Detections &        Penetration Testing
+          Response
+                                    Red Teaming
+     Threat Intelligence
+                                     Bug Bounty
+Security Controls Engineering
+Why is secure coding important?
+
+
+
+
+The average cost of a data breach in
+Australia has grown 32% in the last 5 years,
+reaching AUD $4.03 million.
+IBM Cost of Data Breach Report
+Web App Vulnerabilities
+    Web App
+  Vulnerabilities
+
+
+
+  Info Disclosure
+
+  AuthZ & AuthN
+                      How can I own
+Directory Traversal
+                      this web app?
+Server-side Request
+      Forgery
+
+Command Injection
+    Web App
+  Vulnerabilities
+                      Secrets
+                      Including passwords, keys, tokens, other sensitive
+                      information in source code. Use external storage &
+                      encrypt.
+  Info Disclosure
+                      Don’t reveal your tech stack
+  AuthZ & AuthN
+                      Customise error messages, ensure dependencies and
+                      their versions are hidden.
+Directory Traversal
+
+Server-side Request   Logging & Legal Requirements
+      Forgery         We like logging, but we don’t like the logging of
+                      Personally identiﬁable information (PII).
+Command Injection
+    Web App
+  Vulnerabilities
+
+
+
+  Info Disclosure
+
+  AuthZ & AuthN
+
+
+Directory Traversal
+
+Server-side Request
+      Forgery
+
+Command Injection
+    Web App
+  Vulnerabilities     if (loggedIn() && canAccess())
+                      Missing/broken authentication or authorization
+                      checks.
+  Info Disclosure
+                      Brute-forcing & rate-limiting
+  AuthZ & AuthN
+                      You can put a cap on how many times an API
+                      endpoint can be called, and require strong passwords.
+Directory Traversal
+
+Server-side Request
+      Forgery
+                      Cookie best-practices
+                      https://developer.mozilla.org/en-US/docs/Web/H
+Command Injection     TTP/Cookies
+import request from 'sync-request-curl';
+import fs from 'fs';
+
+
+//https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10
+-million-password-list-top-100.txt
+const passwords = fs.readFileSync('passwords.txt').toString().split("\n");
+const EMAIL = 'admin@gmail.com'
+
+
+for (const password of passwords) {
+    const json = { email: EMAIL, password };
+    try {
+        const res = request(
+             'POST',
+             'https://unigotchi.fly.dev/v1/admin/auth/login',
+             { json }
+        );
+        if (res.statusCode == 200) {
+             console.log(`Found password for ${EMAIL}: ${password}`);
+        }
+    } catch (error) {
+        console.log(`Failed password: ${password}`)
+    }
+}
+    Web App
+  Vulnerabilities
+                      Allows access to ﬁles
+                      Usually via a query parameter that accepts a ﬁle
+  Info Disclosure     name e.g. ?file=../../../etc/passwd
+
+  AuthZ & AuthN
+
+
+Directory Traversal   Prevent with allow lists/input
+Server-side Request   validation
+      Forgery         E.g. path.normalize() in Node.js
+
+Command Injection
+    Web App
+  Vulnerabilities     Access a sensitive or malicious
+                      resource via URL
+                      Similar to File Inclusion, but via a HTTP Request.
+  Info Disclosure
+
+  AuthZ & AuthN
+
+
+Directory Traversal
+
+Server-side Request
+      Forgery
+
+Command Injection
+    Web App
+  Vulnerabilities     Use an outbound proxy and/or allow
+                      list for input
+                      Outbound Proxy blocks incoming requests from
+  Info Disclosure     reaching internal or privileged resources.
+
+  AuthZ & AuthN
+                      The ﬁrst bug I found at Atlassian…
+Directory Traversal
+
+Server-side Request
+      Forgery
+
+Command Injection
+    Web App
+  Vulnerabilities     Injecting malicious code via shell
+                      command
+                      e.g. curl http://somefile && rm -rf /
+  Info Disclosure
+                      CVE-2021-21315
+  AuthZ & AuthN
+                      In the System Information Library for Node.js (npm
+                      package systeminformation, versions before 5.3.1)
+Directory Traversal
+
+Server-side Request   Prevent it using…
+      Forgery         Built-in library functions
+                      fs.readFileSync('passwords.txt')not exec(‘cat
+Command Injection     passwords.txt’)
+                      Input validation, defense in depth
+LLMs & ML code-writing software
+
+
+ ●   Learns from internet resources & insecure code examples
+ ●   Needs to be given rules to keep security in mind
+
+
+
+
+https://www.invicti.com/blog/web-security/analyzing-security-github-copilot-suggestions/
+Static Analysis Tooling
+                   Static Analysis Tooling
+
+
+
+Big commercial vendor            Community-drive, create your own
+                                              rules
+
+
+
+
+Sniff out secrets in code        Integrate with any version control
+                                              software
+            Never trust user input
+Key
+Takeaways
+            Use trusted, pre-built
+            ﬁltering techniques
+
+
+            Keep security in mind
+            through the entire SDLC
+                         Other Resources
+
+Portswigger Web Academy                              HackTheBox
+https://portswigger.net/web-security             https://app.hackthebox.com/home
+
+
+
+
+OWASP Top 10                                         UNSW Security Courses
+https://owasp.org/www-project-top-               https://unilectives.csesoc.app/cour
+ten/                                             se/COMP6841
+
+
+
+                                 CTFTime
+                              https://ctftime.org/
+     Summer Internship Program
+
+
+Mentorship and growth
+                          Work that matters     Play, as a team
+
+
+
+
+              Our 12 week internship runs from late
+              November 2026 to mid-February 2027
+Tips to get a job (not just for Atlassian)
+
+●   Most people have never had a full time tech job so…
+     ○ Join societies and do leadership things
+     ○ Go do a casual job
+     ○ Maybe do other internships? (This one is not fun)
+     ○ Dont lie on ur CV please (or else)
+     ○ Use buzzwords from the JD
+
+●   Experience > grades
+
+●   Networking is epic
+
+●   Get involved in industry
+     ○ CTFs, projects, startups
+     ○ Conferences
+                   Thank you!
+
+
+Giuliana De Bellis | Security Engineer | COMP1531 Course Admin
+         https://www.linkedin.com/in/giuliana-de-bellis/
+

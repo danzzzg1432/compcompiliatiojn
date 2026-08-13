@@ -1,0 +1,205 @@
+C O M P 1 5 31   ·   M A J O R P RO J E C T
+
+
+
+Unigotchi — Iteration 1
+Basic functionality & tests · Ship as a team
+
+
+
+
+$ npm test       # the stubs have to actually work now
+From design to working, tested code
+
+ Your stubs need to work now, and you prove it with tests.
+
+
+
+
+ ITE RA TIO N 0 (don e)                                 ITE RA TIO N 1 (now)
+
+                                                        • Follow good git, & teamwork practice
+ • Understand the requirements
+                                                        • Write tests for + implement the prescribed core
+ • Design the function interfaces
+                                                          functions
+ • Set up how the team works
+                                                        • Implement your designed functions from Iter 0
+ • Stub functions - shape only, no logic
+                                                        NO web server yet — plain JS through the interface
+What's new in the starter code
+
+ TEST ING TOO LCHAIN · pac kage.js on                                   WOR KED EXA MPLE + WHER E CODE GOE S
+
+ "type": "module"  → ESM project                                        echo.js + echo.test.js - a function & its test
+ use import / export — NOT require                                        import { describe, expect, test } from 'vitest'
+                                                                        dataStore.js - getData(), loadData(path), data={}
+ vitest + @vitest/coverage-v8                                           Fill the empty files:
+ npm test          # vitest run                                           auth.js · simulation.js · other.js (+ designed)
+ npm run coverage  # + coverage                                         First word of the function name → its file
+
+
+
+
+ The example universe in the dataStore.js comment is illustrative and LOOSER than the real schema
+ The SPEC is the source of truth - validate against section 3.3, not the comment.
+Mechanics you implement (1): validate + stat maths
+
+ UN IVER SE VA LIDATI ON → I NVALI D_ UNI VERSE        STAT FO RMU LAS & DUR ATI ON
+
+
+                                                       Δ energy = energy/hr × hours Δ happiness = happiness/hr × hours
+ Only assumption: universeData is an object.
+                                                       Stats are integers, clamped to 0–100 after every update
+ Validate everything else:
+                                                       duration = whole hours, min 1 → else INVALID_DURATION
+ •   courses: 1–6 entries
+     •   courseId: 4 UPPERCASE letters + 4 digits      Activity                          Energy/hr Happy/hr         Study/hr
+
+     •   name: 2–40 characters                         Doom Scrolling                    +3           +2            0
+
+ •   exactly 3 exams per course                        Studying                          −15          −5            +1
+
+     •   examId 2–20 · courseId matches · name 2–40    Sleeping                          +15          +2            0
+
+     •   requiredStudyHours: positive integer          Eating                            +10          +3            0
+
+ Don't hard-code — automarking uses unseen universes   Exercising                        −10          +6            0
+
+
+                                                       Study 1h then sleep 2h: energy 100→85→100 (clamped), happy 50→45→49
+Mechanics you implement (2): constraints, exams,
+status
+ ACTI VITY CO NSTR AI NTS                 EX AMS & CO URSE STA TUS              WIN / LOSE · STATE MO DEL
+
+
+
+ Studying: max 3 consecutive hrs,         PASS if studyHoursCompleted ≥         GRADUATE (all): every course PASSED,
+ then a different activity ≥1 hr before   requiredStudyHours                    energy>0, happy>0
+ studying again                           Study hours tracked per exam          DROP OUT (any): a course FAILED · 5
+ Exercising: must have eaten in the       Taking an exam does NOT advance       total exam fails · energy=0 · happy=0
+ last 4 hrs + 1 hr cooldown from          time or change activity               Re-checked after every action and
+ previous exercise end                    Course: IN_PROGRESS → PASSED (≥2/3    every exam
+ Windows measured from when an            passed & all 3 attempted) or FAILED   Know which fields are stored vs
+ activity ENDS, not starts                (≥2/3 failed)                         derived; passChance etc. are for YOUR
+                                                                                features
+ Constraints also cap an action's max
+ duration
+The prescribed interface (automarked)
+
+Function            Parameters                  Returns (no error)         Errors — return the FIRST that applies
+
+                    (studentId, password,                                  INVALID_STUDENT_ID · INVALID_FIRST_NAME ·
+authRegister                                    { studentId }
+                    nameFirst, nameLast)                                   INVALID_LAST_NAME · INVALID_PASSWORD
+
+
+authLogin           (studentId, password)       { studentId }              INVALID_CREDENTIALS
+
+                                                                           INVALID_STUDENT_ID · INVALID_UNIVERSE ·
+simulationCreate    (studentId, universeData)   { simulationId }
+                                                                           MAX_SIMULATIONS (5 max)
+
+
+                                                { simulationStatus,
+simulationStatus    (studentId, simulationId)   currentActivity, energy,   INVALID_STUDENT_ID · INVALID_SIMULATION
+                                                happiness, timeElapsed }
+
+clear               ()                          { }                        — none —
+
+
+
+
+Validation - check the spec
+Conventions & your designed functions
+
+ R ETUR N & VA LIDATI ON CO NVEN TIO NS                       YOUR DESIGNED FU NCTIO NS
+
+
+
+
+ Errors: { error: 'ERROR_TYPE', message: '...' }              Implement the functions your group designed in Iter 0
+ message is NOT marked — say anything useful
+                                                              Update your interface table to add error returns — same
+ Two errors apply? Return the one listed FIRST in the table   style as the prescribed table
+ You CAN assume correct datatypes are given                   Test them comprehensively + demo them to your tutor
+ → don't test for wrong types                                 Manually marked - your tutor will ask you to demo tests
+                                                              running
+ You MUST validate everything else (formats, schema,
+ ranges)                                                      Tip: order common action errors INVALID_ACTION,
+ File = first word of the function name                       INVALID_DURATION, SIMULATION_ENDED
+Live demo
+
+ Red → Green: write the test before the code, then make it pass.
+
+
+
+ STEPS (run inside proje ct-backe nd)
+
+
+
+ 1.   npm test    →   provided echo test passes
+ 2.   write src/auth.test.js — a happy path + an              •    Tests are black-box — test through the interface
+
+       INVALID_STUDENT_ID case, with clear() in               •    clear() in beforeEach keeps tests independent
+       beforeEach.     npm test → RED                         •    toStrictEqual for objects; expect.any(String) for message
+ 3.   implement minimal authRegister (ESM export)             •    90% statement coverage = full coverage marks
+       in src/auth.js.      npm test → GREEN                  •    Code without tests is assumed not to work
+ 4.   npm run coverage → show statement %
+Workflow
+
+     1                     2                 3                   4                   5                    6                    7
+
+ issue + AC           branch             write tests         implement           open MR            peer review        creator merges
+
+
+
+ THE RUL ES (spec 3.5)                                               WOR KING IN PARA LLEL (spec 3. 8)
+
+ •   master is protected                                             •   Be aware of the register→create→status dependency
+ •   MR reviewed by someone who didn't write it; creator                 chain
+     merges after approval                                           •   git pull origin <branch> to share an in-progress branch
+ •   Never merge failing tests or untested features - both           •   Pull master regularly; coordinate order in standups
+     are penalised                                                   •   Each member: ≥1 MR on prescribed + ≥1 on a designed
+ •   Write some tests before the implementation                          function
+Where the marks are
+
+ Git, PM & Teamwork                                                   35%               THE AUT OMA RK FOR MULA
+
+
+                                                                                        Mark = t · i · min((c+10)/100, 1)²
+ General Code Quality                                                20%
+                                                                                        •    t = your tests run against your code
+ Automarking (tests + impl)                                          20%                •    i = hidden course tests against your code
+                                                                                        •    c = statement coverage (+10, capped 100)
+ Test Quality                                                         15%               → 90% coverage earns full coverage marks
+
+
+ Interface Design                                                     10%
+
+
+ A 'working' solution is not, by itself, a pass. Demo may also affect code, test and interface design marks (45%).
+Before you submit
+
+ DRYR UN (o n a CSE machine )                                                        DEADLI NE
+
+ cd project-backend
+ 1531 dryrun 1
+                                                                                     12pm Monday, Week 5
+ cat ~cs1531/bin/iter1.test.cjs             # view tests
+                                                                                     Demonstrated in YOUR Week 5 lab · 35% of the project mark · no
+ Checks return shapes + simple behaviour — not
+ correctness
+                                                                                     late submissions
+
+
+
+
+ THE PATH
+
+
+ Merge new starter (vitest + ESM) → satisfy the prescribed interface → prove it with
+ tests → check coverage → merge reviewed MRs
+
+ Read spec sections 3, 5, 6 and 7 in full this week. Keep master green - it IS your submission.
+

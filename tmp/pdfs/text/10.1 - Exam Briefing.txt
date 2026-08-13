@@ -1,0 +1,374 @@
+COMP1531
+26T2
+Review and Exam
+COMP1531 26T2 Final Exam
+
+  Sessions: 1
+  Day: Monday
+  Date: 24th August, 2026
+  Venue: [check here]
+  Time: 9:45am to 1:00pm
+  Duration : 3 hours, 10 minutes reading time
+Check your student ID cards and get a new one if it is
+lost or expired.
+Announcements
+• A reminder to try exam environment
+     – VERY IMPORTANT
+• Practice Exam questions are available on course
+  website
+Help Sessions and Forum
+
+
+
+
+ Email: cs1531@cse.unsw.edu.au
+Course Goal
+•   Learn software engineering principles via exposure to the
+    important practice of building correct products in effectively
+    functioning teams.
+•   Build a strong foundation in the fundamental principles and
+    practices of software engineering.
+
+
+•   You can
+    •   describe stages of software development lifecycle and
+        implement them
+    •   reason about good practices of software engineering
+What you have learnt
+•   Software Management – version control (git), teamwork
+
+•   Software Process – SDLC
+
+•   Software Project – package management, CI/CD,
+    persistence, HTTP, auth, deployment
+
+•   Software Veriﬁcation – static and dynamic veriﬁcation,
+    coverage
+
+•   Software Design – complexity, modelling, maintainability
+
+•   Software Requirements – requirement engineering
+Assessment
+•   10% Labs
+
+•   45% Project
+
+•   45% Final Exam
+
+To pass, you must:
+
+- score 50/100 overall
+
+- Score 18/45 (40%) on the ﬁnal exam
+
+(For example, 55/100 overall, 17/45 on ﬁnal exam would result
+in 55 UF not 55 PS)
+Pass Rate
+We manually inspect the work of students just below the pass
+threshold.
+
+- If we see many students who’ve suﬃciently shown
+  competency with basic course material but not passing, the
+  exam mark or other components may be scaled up.
+
+COMP1531 is a challenging course, but pass rate is around the
+same as the average for level 1 UNSW courses.
+Lab Marking
+Practical Lab
+
+- 12 assessable (core) practical labs worth 0.75 mark each.
+
+Theory Quiz
+
+- 6 theory quizzes worth 0.5 marks each.
+
+You only need to score 10/12 marks to achieve full marks in
+the lab component.
+
+The majority of students (>70%) get >= 9/10 marks in labs.
+Project Marking
+Marking in progress.
+
+- Automarking has already been released to students, via
+  Gitrun
+
+
+
+Usually about 77/100 mean.
+Final Exam Details
+
+   Sessions: 1
+   Day: Monday
+   Date: 24th August, 2026
+   Venue: [check here]
+   Time: 9:45am to 1:00pm
+   Duration : 3 hours, 10 minutes reading time
+
+Check your student ID cards and get a new one if it is lost or expired.
+The Final Exam: When and Where
+Invigilated and held in CSE labs - 24th August
+
+Morning session only
+
+• If you have a clash, the CSE exams team has already
+  accounted for this [cse.exams@unsw.edu.au]
+
+- You have received an email conﬁrming your ﬁnal allocation
+The Final Exam: When and Where
+Your allocation information is available here:
+
+https://cgi.cse.unsw.edu.au/~exam/26T2/seating/register.cgi
+/allocations/
+
+The exact time and location of your exam will be made
+available very soon.
+
+- Please make careful note of this information,
+
+- Arriving at the incorrect time or location may result in you
+  being unable to sit the exam.
+
+- If there is any issue with your allocation please contact
+  <cse.exams@unsw.edu.au> ASAP.
+The Final Exam: The rules
+UNSW on-campus exam rules apply
+
+• see https://www.student.unsw.edu.au/exam/rules
+
+You must:
+• Bring your student card
+• Have your phone, other electronic devices and watches
+  switched off and in your bag
+• Have a completely clear water bottle if you choose to bring
+  one
+• Not bring your own keyboard/mouse or other hardware
+• Deliberate violation of exam conditions will be treated as
+  serious misconduct, and may be referred to the student
+  conduct and integrity unit (SCIU).
+The Final Exam: Special Consideration
+- This exam is covered by UNSW’s Fit-to-Sit policy.
+
+- By starting the exam, you are saying “I am well enough to
+  ﬁnish the exam.”
+
+- If you are unwell before the exam: see a doctor, apply for
+  Special Consideration, and don’t attend.
+
+- If you become unwell during the exam: talk to an exam
+  supervisor ASAP
+The Final Exam: The exam environment
+- Only materials allowed - You may bring in
+  1 handwritten double-sided A4 page of notes.
+
+- Restricted exam environment. Not your CSE account.
+
+- No access to
+
+   - internet
+
+   - course website
+
+   - your own ﬁles
+The Final Exam: The Format
+-10 minutes reading time, 3 hours working time
+
+- Approx - 50% marks for theory questions and 50% marks for
+  practical questions
+
+-Theory questions: MCQ, short answer questions, open-ended
+design question
+
+-Practical question: Problem Solving, Implementation
+
+-diﬃculty is subjective, of course
+The Final Exam: The Format
+-Each short answer question answered in a separate .md ﬁle.
+-Each practical question answered in a separate folder.
+-MCQs questions answered in the mcq.md.
+
+- Answers will be submitted using a command
+
+   ○ (e.g., submit --question 23)
+
+-Practical questions will include starter codes.
+The Final Exam: The Format
+-Autotests will be available for most/all coding questions.
+
+-For example:
+
+
+
+
+- Passing autotests does not guarantee any marks - do your
+  own testing.
+The Final Exam: Marking
+-No marks awarded for style or comments for practical questions.
+
+- But a human marker may need to be able to deduce the behaviour
+  of your program
+
+-And you should probably be able to read your own code
+
+- Please use reasonable style, variable names, so that we can give
+  you the mark that you deserve
+
+-Comments only necessary to tell the marker something
+
+-Do not include identifying info in comments
+The Final Exam: Marking
+-Answers will be run through automatic marking software.
+
+    - Please follow the input/output format shown exactly - autotest
+      is a guide to help you achieve this.
+
+    - Please make your program behave as speciﬁed.
+
+- Answers that don’t pass all automarking tests are handmarked,
+  guided by automarking.
+The Final Exam: Marking
+-Minor errors will only result in a small penalty.
+
+    - Eg. an answer correct except for missing whitespace would
+      receive almost full marks.
+
+- No marks given unless an answer shows substantial progress
+  towards a solution (>33%)
+    - No marks just for starting a question and writing some generic
+      code.
+    - Zero marks for submitting starter code.
+The Final Exam: Special Considerations
+ - Any ELS extra time has been handled by the CSE exam team - you
+   should see this on the allocations page
+
+ - All students see the same exam question text.
+
+ - The text shows the standard exam deadline, any extra time is
+   additional to it. If in doubt, talk to the exam supervisor.
+
+ - Email us if you have any concerns regarding ELS conditions.
+What should you aim to study for
+Focus on
+
+- Areas covered in lectures
+
+- Areas covered by the assignments
+
+The majority of questions on the exam will focus on concepts seen
+here.
+What should you aim to study for
+Some practical questions have multiple parts in one question.
+
+o They vary in diﬃculty.
+
+o They are ordered in diﬃculty level.
+
+
+
+See Practise Exam:
+
+https://cgi.cse.unsw.edu.au/~cs1531/26T2/practice-exam/
+What should you aim to study for
+For example:
+
+- Javascript basic, arrays, object and etc.
+
+- Veriﬁcation, coverage
+
+- HTTP server, API
+
+- SDLC, Software Design
+
+-   Managing Swagger Files
+Timeline Provisional Results
+Lab marks will be returned to you before the exam.
+
+TENTATIVELY - Hopefully we can also return project iteration 2 marks
+before the exam.
+
+You should have a reasonable estimate of your coursework mark
+before the exam.
+Timeline Provisional Results
+TENTATIVELY When marking is complete, exam marks will be made
+available. We’ll make a forum announcement when this occurs.
+
+• You’ll have an opportunity have your marking reviewed.
+
+• Reviews are only if there’s an issue with the marking, not because
+  you disagree with the mark you received.
+
+Final results will appear on myUNSW on release of results day.
+Supplementary Exams
+If you miss the original exam due to illness/misadventure, you may be
+eligible for a supplementary exam; apply for special consideration.
+
+o Students with borderline results are not offered supps. (…except
+  potential graduands.)
+
+o Similar format to ﬁnal exam.
+  Wellness for Exams
+
+
+
+
+More information can be found here: Exam preparation | Current Students – UNSW Sydney
+What did you like?
+
+Aim of COMP1531 is to give a taste of many topics.
+What did you like?
+More time to get into interesting things
+
+o More weeks for more tutorial and lab time for requirement
+  engineering
+
+o More time to talk about software design
+
+
+
+Labs: a decent bit of work, but hopefully you learned a lot
+
+Project: a lot of work, but hopefully you learned a lot
+What did you like?
+o Generally comprehensive lab exercises and project
+
+o Our amazing tutors and admins!!
+
+o The hardworking students!!!!!
+Thanks to
+Your lovely teaching staff
+o Admins
+o Tutors and lab assistants
+o Forum staff
+o Help session staff
+o Assignment authors
+o Content improvers
+o Assignment markers
+
+
+All of you!
+myExperience
+o How did we do?
+o What worked well?
+o What worked better?
+o Let us know!
+
+Please give your tutors feedback - myExperience is the best way to
+give them feedback, and it will more likely than not make their day.
+Please be mindful of the UNSW Student Code of Conduct as you provide feedback. At UNSW we aim to provide a
+respectful community and ask you to be careful to avoid any language that is sexist, racist or likely to be hurtful.
+You should feel conﬁdent that you can provide both positive and negative feedback, but please be considerate in
+how you communicate.
+And that’s a wrap
+o Good luck 🎉
+o We hope you’ve learnt useful things in this course.
+o We hope you get the mark you’re aiming for!
+o You are nearly there!!! Then you can get a nice break!!!
+Reach Out
+Content Related Questions:
+
+https://discourse03..cse.unsw.edu.au/26T2/COMP1531
+
+
+Admin related questions email:
+
+cs1531@cse.unsw.edu.au
+

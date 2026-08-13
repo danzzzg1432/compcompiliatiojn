@@ -1,0 +1,233 @@
+COMP1531      ·     MAJOR PROJECT
+
+
+
+
+Unigotchi — Iteration 2
+Building a Web Server          ·   Ship as a team
+
+
+
+
+$ npm start       # your Iter 1 functions are now an HTTP API
+The requirements have changed
+Unigotchi blew up beyond UNSW — it now needs a web interface. Same core, new delivery.
+
+
+  IT ERAT ION 1   (d one)                                      IT ERAT ION 2   (n ow)
+
+  Plain JavaScript functions                                   Wrap your logic in HTTP routes (Express)
+  Called directly, through the interface                       Convert the codebase to TypeScript
+  Tested with vitest                                           Sessions replace passing studentId around
+  Data lives in memory (resets each run)                       Persist data — survive a server restart
+  studentId passed in as an argument                           Test over HTTP, black-box, via the network
+
+
+
+
+  Adapting existing code to changed requirements is a core software-engineering skill — most of your marks come from
+  how you design & demo YOUR routes.
+What's new in the toolchain
+TypeScript + an Express server + a documented API contract.
+
+
+  TY PESC RIP T                          EX PRES S S ERVE R                      TH E AP I C ONTR ACT
+
+  Files become .ts                       src/server.ts — routes                  swagger.yaml = your API design
+  Types on params & returns              src/config.json host + port             Copy it into your repo
+  npm run tsc must pass                  npm start runs the server               Prescribed routes are given
+  npm run lint to the style guide        Do NOT move config.json                 You ADD your designed routes
+  Checked at the Wk 8 check-in           or server.ts                            HTTP tests via sync-request-curl
+
+
+
+
+  Reuse Iter 1 logic — the HTTP layer is a thin wrapper. Keep backend functions; routes call them.
+Core idea: user sessions
+A studentId identifies a student — it is NOT proof the caller IS that student.
+
+
+  TH E PR OBL EM                                               WH AT A RO UTE DOE S
+
+  Student IDs are visible & guessable                          1. Read the session header
+  GET /students/z1234567/... could                             2. Missing/invalid → 401
+  leak another user’s data                                     3. Resolve session → studentId
+                                                               4. Check they may access the resource
+  A session token is the proof.                                5. Call your Iter 1 logic with that id
+  Random, hard-to-guess, returned on
+  register / login.                                            Session goes in a header, never the URL
+
+
+
+
+  Keep studentId params in backend functions — the route layer gets the id from the session instead of trusting the
+  client.
+Errors, persistence & CI
+HTTP status codes, data that survives a restart, and a pipeline that catches mistakes.
+
+
+  ER ROR RES PONS ES                     EX CEPT ION S                          PE RSIS TEN CE   +   CI
+
+  401   no / invalid session             throw new UnigotchiError(              State survives a restart
+  403   valid session, not allowed         'INVALID_STUDENT_ID', ...)           No external database
+  400   bad user input                                                          DELETE /clear resets +
+                                         Catch at the route layer,              writes cleared state
+  Order: 401 → 403 → 400                 map to a status + JSON:
+  then first-listed in swagger           { error, message }                     Pipeline: lint + tsc + tests
+
+                                         OPTIONAL
+
+
+
+
+  Passwords are stored hashed (never plaintext); sessions are random tokens. clear must not delete starter or
+  universe files.
+The prescribed routes (automarked)
+A deliberately small shared core, in swagger.yaml. Everything else you design.
+
+Method + Route               Sends                       200 returns                      Errors
+                                                                                          400 INVALID_STUDENT_ID /
+                             studentId, password,
+POST /auth/register                                      { session }                      _FIRST_NAME / _LAST_NAME /
+                             nameFirst, nameLast
+                                                                                          _PASSWORD
+
+POST /auth/login             studentId, password         { session }                      400   INVALID_CREDENTIALS
+
+                             session hdr +                                                401 UNAUTHORISED · 400
+POST /simulations                                        { simulationId }
+                             universeData                                                 INVALID_UNIVERSE / MAX_SIMULATIONS
+
+                                                         status, currentActivity,         401 UNAUTHORISED ·
+GET /simulations/{id}        session hdr
+                                                         energy, happiness, timeElapsed   403 INVALID_SIMULATION
+
+DELETE /clear                —   (no session)            { }                              —
+
+
+
+
+   Session header carries the logged-in user. /clear and /auth/* need no session; simulation routes do.
+Your routes: the Student Wellbeing Advisor
+Design, document, test & demo these 6 stories.
+
+
+  1 · PLAN A WEEK                        2 · SOCI AL SUPP ORT                   3 · WELL BEI NG A CTI VITI ES
+
+  Compare ≥3 next actions with cost      Create / inspect / remove              ≥2 new non-study activities; one
+  / benefit / risk; flag a current       connections; no duplicates;            needs social, one needs an
+  risk or blocker                        affects later behaviour                opportunity
+
+
+
+
+  4 · OP POR TUNI TIE S                  5 · EXAM RE ADIN ESS                   6 · RECO MME ND N EXT
+
+  Clubs / societies from the             HIGH / MED / LOW per exam,             Never suggests an invalid action;
+  universe; join & leave; max 3;         deterministic, documented              gives a reason + an alternative
+  benefits apply later                   thresholds
+
+
+
+
+  Add designed routes to swagger AFTER the prescribed ones · build a traceability table in features.md · must be
+  state-driven, not hardcoded.
+Live demo
+First: see where this is going. Then: build a route the same way — red → green.
+
+
+  SE E TH E T ARGE T   (26 T 1 fr onte nd)             BU ILD IT   (HT TP, tes t- fi rst)
+
+  Your routes are what power this.                     Demo test: POST /auth/register
+                                                       expect 200 + { session } → RED
+
+                                                       Implement the route in server.ts → GREEN
+
+                                                       Also poke it live with curl / Postman
+                                                       Test the status, the body, & side effects
+                                                       DELETE /clear in beforeEach
+
+
+
+
+  APIs are cool!
+How a team ships a route
+
+      1                2                 3                 4                   5                 6                  7
+    design           branch       write HTTP tests   implement route         open MR         peer review      creator merges
+
+
+
+
+ TH E RU LES                                                      WO RKIN G I N PA RAL LEL
+
+ master is protected                                              Design swagger first — unblocks everyone
+ Reviewed by someone who didn’t write it                          Downstream work uses stubbed routes
+ Never merge failing / untested / unapproved code                 git pull origin <branch> to share WIP
+ = penalised                                                      Pull master regularly
+ Write some tests before implementing                             Each member: MRs on prescribed + designed
+
+
+
+
+ Regular standups (≥2 / week) on MS Teams · GitLab issues with acceptance criteria written before you code.
+Where the marks are
+
+ Design Check-in & Final Demo                            50%          TH E AU TOM ARK FOR MULA
+
+                                                                      Mark = t · i · min((c+1)/100, 1)³
+ Automarking (prescribed routes)                         20%
+                                                                      t = your tests vs your code
+                                                                      i = hidden course tests vs your code
+ Group Tests + coverage                                  10%          c = statement coverage (+1, cap 100)
+                                                                      → 99% coverage = full coverage marks
+
+ Code Quality                                            10%
+
+ Git, PM & Teamwork                                      10%
+
+
+
+
+ You CANNOT pass Iter 2 on automarked prescribed routes alone — the design check-in & demo (50%) are required.
+ Bonus: up to 5%.
+The timeline
+Two deadlines. Get TypeScript + prescribed routes done early, then design & demo.
+
+
+  WE EK 8 CH ECK - IN                                          WE EK 10 FI NAL
+
+  Due 12pm Monday, Week 8 · your Wk 8 lab                      Due 9am Monday, Week 10 · Wk 10 lab
+
+  Iter 1 logic → HTTP routes in server.ts                      All designed routes implemented + tested
+  TypeScript conversion done (tsc passes)                      Demo prescribed + designed routes with
+  swagger.yaml API design presented                            Postman / Insomnia / curl
+  GitLab pipeline set up                                       Traceability table in features.md
+  Evidence coverage has been run                               Explain readiness & recommendation models
+
+
+
+
+  No late submissions on the check-in. Final: up to 48h late (core only) at 5% / 24h. Pushing to master = submitting.
+Before you submit
+
+ DR YRUN      & PRE VIE WS                                  DE ADLI NES
+
+ cd project-backend                                         12pm Mon Wk 8   check-in (10%)
+ 1531 dryrun 2                                              9am Mon Wk 10   final (50%)
+ Checks return shapes + basic behaviour
+ — not correctness or your tests                            Demoed in YOUR lab · all members attend
+
+ Previews run Wed, Fri, Sun before submission
+
+
+
+
+ TH E PA TH
+
+ Convert to TypeScript → wrap logic in Express routes → sessions + persistence → design your advisor routes
+ in swagger → test over HTTP → demo with the frontend & Postman.   Read spec section 4 & 5 in full this week.
+
+
+                                   Keep master green — it IS your submission.
+

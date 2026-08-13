@@ -1,0 +1,167 @@
+COMP1531    ·   MAJOR PROJECT
+
+
+
+Unigotchi — Iteration 0
+Requirements · Interface design · Stubs · Teamwork · Demo
+
+
+
+
+# design before you build
+What Iteration 0 is (and isn't)
+
+ A stub is a promise about the interface — don't implement the mechanics yet.
+
+
+
+ THIS ITERATION                                 DELIVERABLES
+
+ • Understand the requirements                  contract.md
+ • Design the function interfaces               meeting minutes
+ • Set up how the team works together           issue board + merge requests
+
+ • Write stub functions only                    features.md
+                                                data.md
+                                                stub functions only
+Starter code structure
+
+                              contract.md — team agreement: meetings, comms, conflict
+
+ project-backend/             features.md — main design doc: feature rows + interface table
+   contract.md
+   minutes-template.md        data.md — proposed data structure (1 user + 1 sim)
+   features.md
+   data.md                    src/*.js — home for prescribed + designed stubs
+   src/
+                              universes/*.json — example data to inspect while designing
+     auth.js course.js
+     dataStore.js exam.js
+     other.js simulation.js
+   universes/
+     universe1..4.json           The spec is the source of truth — not the examples.
+Reading a user story + acceptance criteria
+
+ Story 1 As a student, I want to see all of my Unigotchi simulation instances, so that I can choose
+ which simulation to inspect or continue.
+
+
+
+ ANATOMY                                                   WHICH PRESCRIBED FUNCTIONS HELP?
+
+
+ “As a student” who needs this?                            simulationCreate(studentId, universeData)
+                                                           simulationStatus(studentId, simulationId)
+ “I want to see all…” what capability?
+ “so that I can choose…” why it matters                    Neither returns ALL simulations for a student.
+ Acceptance criteria how we know the design satisfies it   Prescribed interfaces must not change.
+                                                           Need new behaviour? Design a NEW function.
+From story to design · feature + interface
+1 — FEATURE DESIGN ROW (features.md)
+
+  List simulation instances | Story 1 | Retrieve all simulations belonging to a student so they can
+  choose which to inspect | Student records, simulation IDs, status, elapsed time
+
+
+2 — FUNCTION INTERFACE
+
+  simulationList(studentId)                               DESIGN TRADE-OFFS
+
+  {                                                       • simulationId, required by the AC
+      simulations: [                                      • status + timeElapsed - useful summary
+        {
+          simulationId: 1,                                • NOT full course/exam data - this is a list/summary
+          simulationStatus: 'ACTIVE',                     • Want detail? call simulationStatus later
+          timeElapsed: 0,
+        }
+      ]
+  }
+Step 3 — the stub (src/simulation.js)
+
+ // Return a summary list of all simulation
+ // instances belonging to a student.
+                                              A stub proves the SHAPE
+ function simulationList(studentId) {
+                                              of a function, not the logic.
+   return {
+      simulations: [
+         {
+           simulationId: 1,
+           simulationStatus: 'ACTIVE',        • No real behaviour
+           timeElapsed: 0,                    • Just a sample object matching the
+         }                                      interface
+      ],
+   };
+ }
+GitLab issues & merge requests
+
+ ISSUE                                          GOOD PRACTICE
+ [Iteration 0] Design and stub simulationList
+                                                • One issue per small task
+ BRANCH                                         • One branch per issue / task
+ iter0-feat-simulation-list-stub
+                                                • MR links to its issue
+ MR TITLE                                       • Someone ELSE reviews it
+ Add Story 1 simulation list design and stub
+ MR BODY → Closes #<issue>                      • Creator merges after approval
+                                                • No giant all-in-one MR
+Merge conflict demo
+
+      2 branches edit                                              MR 2 now                      Resolve as
+       the same row
+                          →          Merge MR 1         →          conflicts
+                                                                                      →           a team
+
+
+
+
+  <<<<<<< HEAD              your branch
+  | Simulation summaries | Story 1 | ...
+  =======
+  | List simulation instances | Story 1 | ...
+  >>>>>>> origin/master    already merged
+
+
+
+HEAD = your branch · origin/master = what's merged · you decide the final content — never leave the markers in.
+Teamwork advice & wrap-up
+
+ FIVE HABITS                                  A USEFUL REVIEW COMMENT
+ • Work small - one task per issue & MR       ✗ “looks good”
+ • Review meaningfully (not “looks good”)
+ • Never modify prescribed interfaces         ✓ “The interface row says simulationList
+                                              returns simulationStatus, but the stub returns
+ • Keep master clean - it's what you submit   status. Can we make the names match?”
+ • Resolve conflicts as a team
+THE WHOLE PATH
+
+
+Requirement → design → stub → MR → review → merge
+
+ 1   Story: student wants to see all their simulations   6    Add feature + interface rows to features.md, make issue
+
+
+
+ 2   AC: each needs a simulationId + useful summary      7    Add the stub in src/simulation.js
+
+
+
+ 3   simulationStatus inspects one - can’t list all      8    Open a a merge request
+
+
+
+ 4   Prescribed functions must not be modified           9    Someone else reviews it
+
+
+
+ 5   So design simulationList(studentId)                 10   Merge into master
+Demo
+
+      INDIVIDUAL               GROUP
+  1                        2
+      Your contribution        Function design
+ • Stub                   • AC -> Function design
+ • Merge request          • Interface feedback and review
+ • Issue board            • How does it use the datastore?
+                          • Stub review
+

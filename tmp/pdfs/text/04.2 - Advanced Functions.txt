@@ -1,0 +1,220 @@
+          COMP1531
+Software Engineering Fundamentals
+
+                  Week 4
+      Development - Advanced Functions
+Lecture Objective:
+
+● Explore powerful ways higher-level languages use functions
+● Learn function syntax and structure
+● Explore first-class and higher-order functions
+● Understand the role and use of callbacks
+   Function Syntax
+                  In Javascript there are three equivalent ways to define functions.
+
+
+ Method 1                                Method 2                                 Method 3
+
+
+
+
+fn_syntax_1.js                           fn_syntax_2.js                          fn_syntax_3.js
+
+
+
+          ●      Method 1 is the old school method. Though it's fine :)
+          ●      Method 2 and 3 are similar, treating functions like variables.
+          ●      Method 3 is more modern and has other advantages.
+   Function Syntax
+                  In Javascript there are three equivalent ways to define functions.
+
+ Method 1                                Method 2                                 Method 3
+
+
+
+
+fn_syntax_1.ts                           fn_syntax_2.ts                          fn_syntax_3.ts
+
+
+
+          ●      Method 1 is the old school method. Though it's fine :)
+          ●      Method 2 and 3 are similar, treating functions like variables.
+          ●      Method 3 is more modern and has other advantages.
+Function Syntax
+Method 3 also has another advantage. IFF (If and only if) the function body is a single line
+   body that simply returns a value, the braces { } and return keyword can be omitted.
+
+
+
+     Method 3                                    Method 3 Compact
+
+
+
+
+    fn_syntax_3.ts                                       fn_syntax_3_compact.ts
+Function Syntax
+       Another example: You might have previously written this function like this:
+
+
+
+Many String                                         Many String - Advanced
+
+
+
+
+ many_string_1.ts                                             many_string_3.ts
+First Class Functions
+
+In JavaScript, functions are treated like variables → can be stored, passed, or returned. (This is a
+language feature.)
+First Class Functions
+
+You're already used to the idea that you can write a function that produces a
+different output based on the variable inputted.
+
+
+
+
+                              fcf_var.ts
+First Class Functions
+So let's expand that idea and say we can write a function that produces a different output based on a function that
+          is inputted. We essentially pass the function object in, and then call the function inside the body
+
+
+
+
+                                   fcf_format_atomic_alt.ts
+First Class Functions - Anonymous Functions
+      If we only intend to use a function once, we can pass it directly into a function.
+      Because this function doesn't have a name, we call it an anonymous function.
+
+
+
+
+      fcf_format_loop_new.ts                                           fcf_format_loop_anon.ts
+First-Class Functions
+
+🧠 In Summary: What
+
+ ●   First-class functions mean functions are treated like variables.
+ ●   They can be passed as arguments, returned, or stored.
+ ●   This enables functions to accept other functions as inputs.
+
+💡 Why ?
+
+ ●   Enables concise and readable code.
+ ●   Supports anonymous (one-off) functions for cleaner logic.
+ ●   Forms the foundation for callbacks, higher-order functions, and functional programming.
+Map, Reduce, Filter
+
+Map, reduce, filter are functions that act on array objects that help us accomplish
+basic iterative tasks without the overhead of a loop setup. They are based on
+ideas of firstclass functions and anonymous functions
+
+●   Map: Modify an array
+●   Filter: Select from an array
+●   Reduce: Summarise an array
+Map, Reduce, Filter
+
+Map
+
+●     Takes an array of size N, and produces a new array of size N having modified
+      each element according to a function passed in.
+●     Same array size. Modified elements.
+Map, Reduce, Filter
+Map
+          Classic                                         Modern
+
+
+
+
+             map_old.ts                                     map.ts
+
+                    Same array size. Modified elements.
+Map, Reduce, Filter
+
+Filter
+
+●   Takes an array of size N, and produces a new array of size 0..N without
+    modifying any of the data.
+●   Possibly smaller array size. Elements unchanged.
+Map, Reduce, Filter
+Filter
+          Classic                                                           Modern
+
+
+
+
+                                                                               filter.ts
+
+
+
+
+         filter_old.ts
+                         Possibly smaller array size. Elements unchanged.
+Map, Reduce, Filter
+
+Reduce
+
+●   Executes a reducer function (that you provide) on each member of the array
+    resulting in a single output value.
+●   Array turned into atomic value.
+Map, Reduce, Filter
+Reduce                                                     Modern
+          Classic
+
+
+
+
+         reduce_old.ts
+                                                            reduce.ts
+                         Array turned into atomic value.
+Map, Reduce, Filter - Anonymous Functions
+We can use anonymous functions to further streamline our previous code.
+
+
+
+
+                             map_stream.ts
+
+
+
+
+                             filter_stream.ts
+
+
+
+
+                               reduce_stream.ts
+Map, Reduce, Filter - Combined Example
+
+
+
+
+                 map_reduce_filter_demo.ts
+Higher Order Functions
+
+●   Higher-order Functions are essentially functions that return functions. Think of
+    them like mini function factories.
+●   Let's go through a code cleanup journey.
+Higher Order Functions - Another Example
+
+
+
+
+          hoc_1.ts
+
+
+
+
+                                           hoc_7.ts
+Higher Order Functions
+
+Summary
+
+●   Higher order functions are syntactically sleek ways to generalise function
+    definitions.
+●   It make code reusable, flexible, and expressive, allowing developers to
+    write cleaner, modular, and more powerful JavaScript programs.
+Feedback
+
