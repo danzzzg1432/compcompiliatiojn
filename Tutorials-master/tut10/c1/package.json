@@ -1,0 +1,7 @@
+{
+  "name": "c3",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  }
+}

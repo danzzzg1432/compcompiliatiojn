@@ -1,0 +1,57 @@
+import { getData } from './dataStore';
+import type { EmptyObject, ErrorObject, MovieAddReturn, MovieListReturn } from './types';
+
+// A custom exception class that can take both error and message
+export class MovieError extends Error {
+  error: string;
+
+  constructor(error: string, message: string) {
+    super(message);
+    this.error = error;
+  }
+}
+
+export function clear(): EmptyObject {
+  getData().movies = [];
+  return {};
+}
+
+export function movieAdd(title: string, director: string): MovieAddReturn | ErrorObject {
+  if (title === '' || director === '') {
+    // FIXME: change to throw error
+    return { error: 'INVALID_MOVIE_DETAILS', message: 'Title or director is empty' };
+  }
+
+  const data = getData();
+
+  const movieId = data.movies.length;
+  data.movies.push({ movieId, title, director });
+  return { movieId };
+}
+
+export function movieEdit(movieId: number, title: string, director: string): EmptyObject | ErrorObject {
+  const movie = getData().movies.find(m => m.movieId === movieId);
+  if (movie === undefined) {
+    // FIXME: change to throw error
+    return { error: 'INVALID_MOVIE_ID', message: `No existing movie with movieId: ${movieId}` };
+  }
+
+  if (title === '') {
+    // FIXME: change to throw error
+    return { error: 'INVALID_MOVIE_DETAILS', message: `Title '${title}' is empty` };
+  }
+
+  if (director === '') {
+    // FIXME: change to throw error
+    return { error: 'INVALID_MOVIE_DETAILS', message: `Director '${director}' is empty` };
+  }
+
+  movie.title = title;
+  movie.director = director;
+
+  return {};
+}
+
+export function moviesList(): MovieListReturn {
+  return { movies: getData().movies };
+}

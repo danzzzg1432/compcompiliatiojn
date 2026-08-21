@@ -1,0 +1,9 @@
+{
+  "name": "c2",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint",
+    "tsc": "tsc --noEmit --project tsconfig.json",
+    "tsx": "tsx"
+  }
+}

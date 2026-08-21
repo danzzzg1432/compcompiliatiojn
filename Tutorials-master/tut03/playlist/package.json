@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "echo \"No test script setup yet 🧪. Replace me with: vitest run\""
+  },
+  "type": "module",
+  "devDependencies": {
+  }
+}
